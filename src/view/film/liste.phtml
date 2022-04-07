@@ -1,0 +1,23 @@
+<h1>Film</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Titre</th>
+            <th>Durée</th>
+            <th>Réalisateur</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($films as $film) :  ?>
+            <tr>
+                <td><?= $film->getId(); ?></td>
+                <td><?= $film->getTitre(); ?></td>
+                <td><?= $film->getDuree(); ?></td>
+                <td><?= $film->getRealisateur()->getNom(); ?> <?= $film->getRealisateur()->getPrenom(); ?> </td>
+                <td><a href="http://localhost:8000/?controller=film&task=detail&id=<?= $film->getId(); ?>">En savoir plus</a></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
